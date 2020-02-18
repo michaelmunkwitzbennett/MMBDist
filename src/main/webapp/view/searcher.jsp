@@ -20,27 +20,31 @@
 
 </head>
 <body>
+<!--
 <nav class="navbar navbar-light bg-light justify-content-between">
     <a href="index.jsp" class="navbar-brand">Food</a>
     <button onclick="window.location.href = 'login.jsp';" class="btn btn-outline-dark my-2 my-sm-0">Login</button>
-</nav>
+</nav> -->
+<jsp:include page="header.jsp"></jsp:include>
 <div class="hero-image">
     <div class="hero-text">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <div class="card-title">Sandwich Search</div>
-                <form method="get" action="search">
+                <div class="card-title">Sandwiches</div>
+                <form method="get" action="search2">
                     <div class="form-group">
                         <label for="exampleSearch">Sandwich Family</label>
                         <input type="text" class="form-control" name="family" id="exampleSearch" aria-describedby="searchHelp">
-                        <small id="emailHelp" class="form-text text-muted">Melt - Classic - Toastie - Submarine</small>
+                        <small id="familyHelp" class="form-text text-muted">Melt - Classic - Toastie - Submarine</small>
                     </div>
                     <button type="submit" class="btn btn-dark">Search</button>
                 </form>
             </div>
         </div>
     </div>
+    <jsp:include page="footer.jsp"></jsp:include>
 </div>
+
 
 
 <!-- Optional JavaScript -->

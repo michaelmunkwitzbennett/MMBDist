@@ -1,4 +1,4 @@
-package edu.wctc;
+package edu.wctc.servlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

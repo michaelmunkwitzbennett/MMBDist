@@ -20,16 +20,14 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a href="index.jsp" class="navbar-brand">Food</a>
-        <button onclick="window.location.href = 'login.jsp';" class="btn btn-outline-dark my-2 my-sm-0">Login</button>
-    </nav>
+    <jsp:include page="header.jsp"></jsp:include>
     <div class="hero-image">
         <div class="hero-text">
             <h1>Sandwich Shoppe</h1>
             <p>Meat from before the plague</p>
             <button onclick="window.location.href = 'list.jsp';" class="btn btn-lg btn-outline-dark active"><i class="fa fa-list"></i> Browse Items</button>
         </div>
+        <jsp:include page="footer.jsp"></jsp:include>
     </div>
 
 

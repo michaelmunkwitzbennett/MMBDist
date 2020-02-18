@@ -20,10 +20,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-light bg-light justify-content-between">
-    <a href="index.jsp" class="navbar-brand">Food</a>
-    <button onclick="window.location.href = 'login.jsp';" class="btn btn-outline-dark my-2 my-sm-0">Login</button>
-</nav>
+<jsp:include page="header.jsp"></jsp:include>
 <div class="hero-image">
     <div class="hero-text">
         <div class="card" style="width: 100%;">
@@ -41,8 +38,8 @@
                 <button onclick="window.location.href = 'detail.jsp';" class="btn btn-lg btn-outline-dark active"><i class="fa fa-list"></i> Add Item</button>
             </div>
         </div>
-
     </div>
+    <jsp:include page="footer.jsp"></jsp:include>
 </div>
 
 

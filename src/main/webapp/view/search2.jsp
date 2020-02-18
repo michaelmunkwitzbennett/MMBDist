@@ -1,11 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: scawd
-  Date: 1/21/2020
-  Time: 6:32 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="appRoot" value="${appRoot.request.contextPath}"/>
 <html>
 <head>
     <title>Detail</title>
@@ -17,33 +12,32 @@
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
     <link rel="stylesheet" href="../resources/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Oldenburg&display=swap" rel="stylesheet">
-
+    <base href="${pageContext.request.contextPath}/"/>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 <div class="hero-image">
     <div class="hero-text">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 36rem;">
             <div class="card-body">
-                <form>
-                    <div class="card-title">Item Details</div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Item Name" aria-label="Item Name" aria-describedby="basic-addon2">
-                    </div>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Item Category" aria-label="Item Category" aria-describedby="basic-addon2">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">$</span>
-                        </div>
-                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
-                        <div class="input-group-append">
-                            <span class="input-group-text">.00</span>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-dark">Save Changes</button>
-                </form>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Year</th>
+                            <th>Family</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <c:forEach var="s" items="${sandwiches}">
+                            <tr>
+                                <td>${s.name}</td>
+                                <td>${s.inventionYear}</td>
+                                <td>${s.family}</td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
