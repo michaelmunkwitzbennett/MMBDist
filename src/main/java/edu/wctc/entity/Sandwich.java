@@ -5,6 +5,7 @@ public class Sandwich {
     private String name;
     private int inventionYear;
     private String family;
+    private SandwichDetail detail;
 
     public Sandwich() {
 
@@ -40,5 +41,13 @@ public class Sandwich {
 
     public void setFamily(String family) {
         this.family = family;
+    }
+
+    public SandwichDetail getDetail() {
+        return detail;
+    }
+
+    public void setDetail(SandwichDetail detail) {
+        this.detail = detail;
     }
 }

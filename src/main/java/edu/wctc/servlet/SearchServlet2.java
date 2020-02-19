@@ -2,6 +2,7 @@ package edu.wctc.servlet;
 
 import edu.wctc.DatabaseUtils;
 import edu.wctc.entity.Sandwich;
+import edu.wctc.entity.SandwichDetail;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,8 +41,9 @@ public class SearchServlet2 extends HttpServlet {
             String absPath = getServletContext().getRealPath("/") + DATABASE_PATH;
 
             // Build the query as a String
-            StringBuilder sql = new StringBuilder("select nm, inventiondate, family_nm ");
+            StringBuilder sql = new StringBuilder("select nm, inventiondate, family_nm, price ");
             sql.append("from sandwich ");
+            sql.append("join sandwich_detail on (sandwich.sandwich_id = sandwich_detail.sandwich_id)");
             sql.append("where family_nm = ?"); // Don't end SQL with semicolon!
 
             // Create a connection
@@ -61,6 +63,11 @@ public class SearchServlet2 extends HttpServlet {
                 s.setName(rset.getString(1));
                 s.setInventionYear(rset.getInt(2));
                 s.setFamily(rset.getString(3));
+
+                SandwichDetail sd = new SandwichDetail();
+                s.setDetail(sd);
+
+                sd.setPrice(rset.getDouble(4));
 
                 sandwichList.add(s);
             }

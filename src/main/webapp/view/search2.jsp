@@ -26,6 +26,7 @@
                             <th>Name</th>
                             <th>Year</th>
                             <th>Family</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,6 +35,7 @@
                                 <td>${s.name}</td>
                                 <td>${s.inventionYear}</td>
                                 <td>${s.family}</td>
+                                <td>${s.detail.price}</td>
                             </tr>
                         </c:forEach>
                     </tbody>

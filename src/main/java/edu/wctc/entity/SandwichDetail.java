@@ -5,6 +5,7 @@ public class SandwichDetail {
     private String size;
     private String nickName;
     private int mass;
+    private double price;
 
     public SandwichDetail() {
 
@@ -40,5 +41,13 @@ public class SandwichDetail {
 
     public void setMass(int mass) {
         this.mass = mass;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }
