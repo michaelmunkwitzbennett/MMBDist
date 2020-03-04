@@ -8,43 +8,39 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Login</title>
+    <title>List</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link rel="stylesheet" href="../resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Oldenburg&display=swap" rel="stylesheet">
 
 </head>
 <body>
-<!--
-<nav class="navbar navbar-light bg-light justify-content-between">
-    <a href="index.jsp" class="navbar-brand">Food</a>
-    <button onclick="window.location.href = 'login.jsp';" class="btn btn-outline-dark my-2 my-sm-0">Login</button>
-</nav> -->
 <jsp:include page="header.jsp"></jsp:include>
 <div class="hero-image">
     <div class="hero-text">
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 100%;">
             <div class="card-body">
-                <div class="card-title">Sandwiches</div>
-                <form method="get" action="search2">
-                    <div class="form-group">
-                        <label for="exampleSearch">Sandwich Family</label>
-                        <input type="text" class="form-control" name="family" id="exampleSearch" aria-describedby="searchHelp">
-                        <small id="familyHelp" class="form-text text-muted">Melt - Classic - Toastie - Submarine</small>
-                    </div>
-                    <button type="submit" class="btn btn-dark">Search</button>
-                </form>
+                <div class="card-title">Our Menu</div>
+                <ul class="list-group container">
+                    <li class="list-group-item row"><p class="col-8">Sandwich 1</p><i class="edit fa fa-pencil col"></i><i class="delete fa fa-trash col"></i></li>
+                    <hr>
+                    <li class="list-group-item row"><p class="col-8">Sandwich 2</p><i class="edit fa fa-pencil col"></i><i class="delete fa fa-trash col"></i></li>
+                    <hr>
+                    <li class="list-group-item row"><p class="col-8">Sandwich 3</p><i class="edit fa fa-pencil col"></i><i class="delete fa fa-trash col"></i></li>
+                    <hr>
+                    <li class="list-group-item row"><p class="col-8">Sandwich 4</p><i class="edit fa fa-pencil col"></i><i class="delete fa fa-trash col"></i></li>
+                </ul>
+                <button onclick="window.location.href = 'detail.jsp';" class="btn btn-lg btn-outline-dark active"><i class="fa fa-list"></i> Add Item</button>
             </div>
         </div>
     </div>
     <jsp:include page="footer.jsp"></jsp:include>
 </div>
-
 
 
 <!-- Optional JavaScript -->

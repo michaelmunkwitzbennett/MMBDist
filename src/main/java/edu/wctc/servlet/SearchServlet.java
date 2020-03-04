@@ -10,7 +10,7 @@ import java.sql.*;
 
 import static edu.wctc.DatabaseUtils.closeAll;
 
-@WebServlet(name = "SearchServlet", urlPatterns = "/view/search")
+@WebServlet(name = "SearchServlet", urlPatterns = "/view/searchOld")
 public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

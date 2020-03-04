@@ -13,7 +13,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "ListServlet2", urlPatterns = "/view/list2")
+@WebServlet(name = "ListServlet2", urlPatterns = "/view/list")
 public class ListServlet2 extends HttpServlet {
     private final String DRIVER_NAME = "jdbc:derby:";
     private final String DATABASE_PATH = "../../db";

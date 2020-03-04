@@ -14,7 +14,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "SearchServlet2", urlPatterns = "/view/search2")
+@WebServlet(name = "SearchServlet2", urlPatterns = "/view/search")
 public class SearchServlet2 extends HttpServlet {
     private final String DRIVER_NAME = "jdbc:derby:";
     private final String DATABASE_PATH = "../../db";

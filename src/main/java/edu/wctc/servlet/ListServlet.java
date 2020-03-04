@@ -11,7 +11,7 @@ import java.sql.*;
 
 import static edu.wctc.DatabaseUtils.closeAll;
 
-@WebServlet(name = "ListServlet", urlPatterns = "/list")
+@WebServlet(name = "ListServlet", urlPatterns = "/listOld")
 public class ListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
