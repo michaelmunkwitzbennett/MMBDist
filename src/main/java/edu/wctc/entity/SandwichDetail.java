@@ -1,14 +1,45 @@
 package edu.wctc.entity;
 
+import lombok.Data;
+
+import javax.persistence.*;
+
+@Data
+@Entity
+@Table(name="sandwich_detail")
 public class SandwichDetail {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "sandwich_id")
     private int id;
+
+    @Column(name="size")
     private String size;
+
+    @Column(name="nickname")
     private String nickName;
+
+    @Column(name="mass")
     private int mass;
+
+    @Column(name="price")
     private double price;
+
+    @OneToOne(mappedBy = "detail",
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private Sandwich sandwich;
 
     public SandwichDetail() {
 
+    }
+
+    public SandwichDetail(String size, String nickName, int mass, double price, Sandwich sandwich) {
+        this.size = size;
+        this.nickName = nickName;
+        this.mass = mass;
+        this.price = price;
+        this.sandwich = sandwich;
     }
 
     public int getId() {

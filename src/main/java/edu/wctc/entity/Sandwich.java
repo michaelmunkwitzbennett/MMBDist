@@ -1,14 +1,40 @@
 package edu.wctc.entity;
 
+import lombok.Data;
+
+import javax.persistence.*;
+
+@Data
+@Entity
+@Table(name="sandwich")
 public class Sandwich {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "sandwich_id")
     private int id;
+
+    @Column(name="nm")
     private String name;
+
+    @Column(name="inventiondate")
     private int inventionYear;
-    private String family;
+
+    @Column(name="family_nm")
+    private Family family;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "sandwich_id")
     private SandwichDetail detail;
 
     public Sandwich() {
 
+    }
+
+    public Sandwich(String name, int inventionYear, Family family, SandwichDetail detail) {
+        this.name = name;
+        this.inventionYear = inventionYear;
+        this.family = family;
+        this.detail = detail;
     }
 
     public int getId() {
@@ -35,11 +61,11 @@ public class Sandwich {
         this.inventionYear = inventionYear;
     }
 
-    public String getFamily() {
+    public Family getFamily() {
         return family;
     }
 
-    public void setFamily(String family) {
+    public void setFamily(Family family) {
         this.family = family;
     }
 
