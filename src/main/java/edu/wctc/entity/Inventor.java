@@ -24,6 +24,38 @@ public class Inventor {
     @JoinColumn(name = "inventor_id")
     private InventorDetail detail;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
+    }
+
+    public InventorDetail getDetail() {
+        return detail;
+    }
+
+    public void setDetail(InventorDetail detail) {
+        this.detail = detail;
+    }
+
     public Inventor() {
 
     }

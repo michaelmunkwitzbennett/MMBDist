@@ -30,6 +30,14 @@ public class SandwichDetail {
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Sandwich sandwich;
 
+    public Sandwich getSandwich() {
+        return sandwich;
+    }
+
+    public void setSandwich(Sandwich sandwich) {
+        this.sandwich = sandwich;
+    }
+
     public SandwichDetail() {
 
     }

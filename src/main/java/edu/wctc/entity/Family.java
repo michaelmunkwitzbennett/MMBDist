@@ -2,10 +2,8 @@ package edu.wctc.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 @Data
 @Entity
@@ -15,6 +13,14 @@ public class Family {
     @Id
     @Column(name="family_nm")
     private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Family() {
 

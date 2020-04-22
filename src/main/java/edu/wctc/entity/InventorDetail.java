@@ -20,12 +20,52 @@ public class InventorDetail {
     @Column(name="style")
     private String style;
 
-    @Column(name="creationCount")
+    @Column(name="creation_count")
     private int creationCount;
 
     @OneToOne(mappedBy = "detail",
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Inventor inventor;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getStyle() {
+        return style;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
+    public int getCreationCount() {
+        return creationCount;
+    }
+
+    public void setCreationCount(int creationCount) {
+        this.creationCount = creationCount;
+    }
+
+    public Inventor getInventor() {
+        return inventor;
+    }
+
+    public void setInventor(Inventor inventor) {
+        this.inventor = inventor;
+    }
 
     public InventorDetail() {
 
