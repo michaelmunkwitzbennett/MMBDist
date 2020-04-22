@@ -20,7 +20,7 @@ public class Sandwich {
     private int inventionYear;
 
     @Column(name="family_nm")
-    private Family family;
+    private String family;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sandwich_id")
@@ -30,7 +30,7 @@ public class Sandwich {
 
     }
 
-    public Sandwich(String name, int inventionYear, Family family, SandwichDetail detail) {
+    public Sandwich(String name, int inventionYear, String family, SandwichDetail detail) {
         this.name = name;
         this.inventionYear = inventionYear;
         this.family = family;
@@ -61,11 +61,11 @@ public class Sandwich {
         this.inventionYear = inventionYear;
     }
 
-    public Family getFamily() {
+    public String getFamily() {
         return family;
     }
 
-    public void setFamily(Family family) {
+    public void setFamily(String family) {
         this.family = family;
     }
 
