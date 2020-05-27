@@ -3,6 +3,8 @@ package edu.wctc.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -13,11 +15,14 @@ public class Sandwich {
     @Column(name = "sandwich_id")
     private int id;
 
+    @NotNull(message = "required")
+    @Size(min = 1, max = 36, message = "1-36 characters")
     @Column(name="nm")
     private String name;
 
+    @NotNull(message = "required XXXX format")
     @Column(name="inventiondate")
-    private int inventionYear;
+    private Integer inventionYear;
 
     @Column(name="family_nm")
     private String family;
@@ -53,7 +58,7 @@ public class Sandwich {
         this.name = name;
     }
 
-    public int getInventionYear() {
+    public Integer getInventionYear() {
         return inventionYear;
     }
 

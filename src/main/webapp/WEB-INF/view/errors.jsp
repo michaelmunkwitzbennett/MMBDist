@@ -5,7 +5,7 @@
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>List</title>
+    <title>Error</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,49 +22,8 @@
     <div class="hero-text">
         <div class="card" style="width: 36rem;">
             <div class="card-body">
-                <button class="add-button btn btn-primary"
-                        onclick="window.location.href='${cp}/sandwich/showAddSandwichForm'; return false;">
-                    Add Sandwich
-                </button>
-
-                <form:form action="sandwich/search" method="get">
-                    <div class="form-group">
-                        <input type="search" name="searchTerm"/>
-                        <input type="submit" value="Search" class="add-button"/>
-                    </div>
-                </form:form>
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Year</th>
-                            <th>Family</th>
-                            <!-- edit -->
-                            <!-- delete -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="s" items="${sandwiches}">
-
-                        <c:url var="updateLink" value="/sandwich/showUpdateSandwichForm">
-                            <c:param name="sandwichId" value="${s.id}"/>
-                        </c:url>
-
-                        <c:url var="deleteLink" value="/sandwich/delete">
-                            <c:param name="sandwichId" value="${s.id}"/>
-                        </c:url>
-
-                        <tr>
-                            <td>${s.name}</td>
-                            <td>${s.inventionYear}</td>
-                            <td>${s.family}</td>
-                            <td><a href="${updateLink}"><i class="fas fa-save"></i></a></td>
-                            <td><a href="${deleteLink}" onclick="if (!confirm('Are you sure?')) return false"><i class="fas fa-trash"></i></a></td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                <div class="card-title">An error has occurred</div>
+                <p>${errorMessage}</p>
             </div>
         </div>
     </div>

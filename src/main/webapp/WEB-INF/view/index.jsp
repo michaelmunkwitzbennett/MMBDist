@@ -25,7 +25,7 @@
         <div class="hero-text">
             <h1>Sandwich Shoppe</h1>
             <p>Meat from before the plague</p>
-            <button onclick="window.location.href = 'list';" class="btn btn-lg btn-outline-dark active"><i class="fa fa-list"></i> Browse Items</button>
+            <button onclick="window.location.href = 'sandwich/list';" class="btn btn-lg btn-outline-dark active"><i class="fa fa-list"></i> Browse Items</button>
         </div>
         <jsp:include page="footer.jsp"></jsp:include>
     </div>

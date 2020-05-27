@@ -5,7 +5,7 @@
 <c:set var="cp" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>List</title>
+    <title>Update/Add Sandwich</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,49 +22,35 @@
     <div class="hero-text">
         <div class="card" style="width: 36rem;">
             <div class="card-body">
-                <button class="add-button btn btn-primary"
-                        onclick="window.location.href='${cp}/sandwich/showAddSandwichForm'; return false;">
-                    Add Sandwich
-                </button>
+                <div class="card-title">Enter Sandwich Info:</div>
+                <form:form action="${cp}/sandwich/save" modelAttribute="aSandwich" method="post">
 
-                <form:form action="sandwich/search" method="get">
+                    <!-- hidden sandwich object props -->
+                    <form:hidden path="id" value="${aSandwich.id}"/>
+
                     <div class="form-group">
-                        <input type="search" name="searchTerm"/>
-                        <input type="submit" value="Search" class="add-button"/>
+                        <label for="sandwichName">Name</label>
+                        <form:input path="name" type="text" class="form-control" id="sandwichName"/>
+                        <form:errors path="name" cssClass="error"/>
+                        <small id="familyHelp" class="form-text text-muted">Enter a name for your sandwich</small>
                     </div>
+                    <div class="form-group">
+                        <label for="sandwichYear">Year</label>
+                        <form:input path="inventionYear" type="number" class="form-control" id="sandwichYear"/>
+                        <form:errors path="inventionYear" cssClass="error"/>
+                        <small id="familyHelp" class="form-text text-muted">Enter the year the sandwich was created</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="sandwichFamily">Family</label>
+                        <form:select path="family" type="text" class="form-control" id="sandwichFamily">
+                            <form:option value="Melt">Melt</form:option>
+                            <form:option value="Melt">Submarine</form:option>
+                            <form:option value="Melt">Toastie</form:option>
+                            <form:option value="Melt">Classic</form:option>
+                        </form:select>
+                    </div>
+                    <button type="submit" class="btn btn-dark">Save</button>
                 </form:form>
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Year</th>
-                            <th>Family</th>
-                            <!-- edit -->
-                            <!-- delete -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="s" items="${sandwiches}">
-
-                        <c:url var="updateLink" value="/sandwich/showUpdateSandwichForm">
-                            <c:param name="sandwichId" value="${s.id}"/>
-                        </c:url>
-
-                        <c:url var="deleteLink" value="/sandwich/delete">
-                            <c:param name="sandwichId" value="${s.id}"/>
-                        </c:url>
-
-                        <tr>
-                            <td>${s.name}</td>
-                            <td>${s.inventionYear}</td>
-                            <td>${s.family}</td>
-                            <td><a href="${updateLink}"><i class="fas fa-save"></i></a></td>
-                            <td><a href="${deleteLink}" onclick="if (!confirm('Are you sure?')) return false"><i class="fas fa-trash"></i></a></td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

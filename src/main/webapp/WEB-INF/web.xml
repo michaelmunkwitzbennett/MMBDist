@@ -22,4 +22,8 @@
         <!-- All web requests are handled by dispatcher servlet -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    
+    <error-page>
+        <location>/errors</location>
+    </error-page>
 </web-app>
