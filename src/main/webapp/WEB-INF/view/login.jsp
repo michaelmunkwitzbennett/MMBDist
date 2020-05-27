@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: scawd
@@ -6,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="cp" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
     <title>Login</title>
@@ -15,7 +17,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="${cp}/resources/css/style.css" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Oldenburg&display=swap" rel="stylesheet">
 
 </head>
@@ -26,18 +28,39 @@
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <div class="card-title">Account Login</div>
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-dark">Login</button>
-                </form>
+                <form:form action="${cp}/authenticate" method="POST">
+                    <table>
+                        <!-- Only show this message if the user has been logged out -->
+                        <c:if test="${param.logout != null}">
+                            <tr>
+                                <td></td>
+                                <td>You have been logged out</td>
+                            </tr>
+                        </c:if>
+                        <tr>
+                            <td><label>Username</label></td>
+                            <!-- Spring expects this to have name="username" -->
+                            <td><input type="text" name="username"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Password</label></td>
+                            <!-- Spring expects this to have name="password" -->
+                            <td><input type="password" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Login"></td>
+                        </tr>
+                        <!-- Only show this row if there was a login error -->
+                        <c:if test="${param.error != null}">
+                            <tr>
+                                <td></td>
+                                <td class="error">Invalid login</td>
+                            </tr>
+                        </c:if>
+                    </table>
+                </form:form>
+
             </div>
         </div>
     </div>

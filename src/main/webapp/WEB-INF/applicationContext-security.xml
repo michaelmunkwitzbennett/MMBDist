@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/security
+                           http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!-- Bean for bcrypt password encoding -->
+    <bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+    <!-- BEGIN SECURITY CONFIGURATION -->
+    <security:http use-expressions="true">
+        <security:intercept-url pattern="/sandwich/admin/**" access="hasRole('ADMIN')"/>
+        <security:intercept-url pattern="/sandwich/user/**" access="hasRole('USER')"/>
+
+        <!-- We don't need to write a mapping for "authenticate"
+        Spring understands how to process login if we follow name conventions -->
+        <security:form-login
+                login-page="/showLoginForm"
+                login-processing-url="/authenticate"
+                authentication-failure-url="/showLoginForm?error=true"
+                username-parameter="username"
+                password-parameter="password"
+                default-target-url="/sandwich/list"/>
+        <security:logout logout-url="/logout"
+                         logout-success-url="/showLoginForm?logout=true"/>
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <!--<security:user-service>
+                  <security:user name="gigi" password="p" authorities="USER"/>
+                  <security:user name="stacy" password="p" authorities="USER,ADMIN"/>
+              </security:user-service>-->
+            <security:jdbc-user-service data-source-ref="myDataSource"/>
+            <security:password-encoder ref="bcryptEncoder"/>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <!-- END SECURITY CONFIGURATION -->
+</beans>
